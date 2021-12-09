@@ -2,7 +2,7 @@ MININET = mininet/*.py
 TEST = mininet/test/*.py
 EXAMPLES = mininet/examples/*.py
 MN = bin/mn
-PYMN = python -B bin/mn
+PYMN = python2 -B bin/mn
 BIN = $(MN)
 PYSRC = $(MININET) $(TEST) $(EXAMPLES) $(BIN)
 MNEXEC = mnexec
@@ -49,13 +49,13 @@ mnexec: mnexec.c $(MN) mininet/net.py
 install: $(MNEXEC) $(MANPAGES)
 	install $(MNEXEC) $(BINDIR)
 	install $(MANPAGES) $(MANDIR)
-	python setup.py install
+	python2 setup.py install
 
 develop: $(MNEXEC) $(MANPAGES)
 # 	Perhaps we should link these as well
 	install $(MNEXEC) $(BINDIR)
 	install $(MANPAGES) $(MANDIR)
-	python setup.py develop
+	python2 setup.py develop
 
 man: $(MANPAGES)
 
